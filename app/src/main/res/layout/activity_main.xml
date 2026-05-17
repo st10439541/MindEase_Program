@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF9F8"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:paddingBottom="100dp">
+
+        <!-- Header Section: Good Morning + Username -->
+        <TextView
+            android:id="@+id/tvGoodMorning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good Morning"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#8B8B8B"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sarah"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#B9A9D1"
+            app:layout_constraintStart_toEndOf="@id/tvGoodMorning"
+            app:layout_constraintTop_toTopOf="@id/tvGoodMorning" />
+
+        <!-- Mood and Pet Options Row -->
+        <TextView
+            android:id="@+id/tvMoodLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How are you feeling? "
+            android:textSize="16sp"
+            android:textColor="#A0A0A0"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGoodMorning" />
+
+        <TextView
+            android:id="@+id/tvMoodValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calm"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#A8D8EA"
+            app:layout_constraintStart_toEndOf="@id/tvMoodLabel"
+            app:layout_constraintTop_toTopOf="@id/tvMoodLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvMoodLabel" />
+
+        <TextView
+            android:id="@+id/tvPetOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🐾 Pet Companion"
+            android:textSize="14sp"
+            android:textColor="#A8D8EA"
+            android:background="@drawable/pill_background"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/tvMoodValue"
+            app:layout_constraintTop_toTopOf="@id/tvMoodLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvMoodLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <!-- Log Mood and Journal Buttons -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogMood"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:text="✨ Log Mood"
+            android:textAllCaps="false"
+            android:backgroundTint="#E8D5E4"
+            android:textColor="#8B6F8C"
+            android:layout_marginTop="24dp"
+            app:cornerRadius="26dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnJournal"
+            app:layout_constraintTop_toBottomOf="@id/tvMoodLabel"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintWidth_percent="0.45" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJournal"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:text="📝 Journal"
+            android:textAllCaps="false"
+            android:backgroundTint="#D5E4E8"
+            android:textColor="#6B8F8C"
+            app:cornerRadius="26dp"
+            app:layout_constraintStart_toEndOf="@id/btnLogMood"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnLogMood"
+            app:layout_constraintWidth_percent="0.45" />
+
+        <!-- Today's Check-in Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCheckin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:strokeColor="#E8D5E4"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/btnLogMood">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today's Wellness Snapshot"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#5A5A5A"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="🌸 Mood:"
+                        android:textColor="#A0A0A0"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tvMoodSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Peaceful"
+                        android:textStyle="bold"
+                        android:textColor="#B9A9D1"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ Stress Level:"
+                        android:textColor="#A0A0A0"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tvStressLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moderate"
+                        android:textStyle="bold"
+                        android:textColor="#F4B8A8"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="😴 Sleep Quality:"
+                        android:textColor="#A0A0A0"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tvSleep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Restful"
+                        android:textStyle="bold"
+                        android:textColor="#A8D8EA"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Gentle Warning Banner -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="#FFF5F0"
+            app:cardElevation="1dp"
+            app:layout_constraintTop_toBottomOf="@id/cardCheckin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="💙 Take a gentle breath - you've had a busy day"
+                    android:textColor="#E8A090"
+                    android:textStyle="normal"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Reminders Section -->
+        <TextView
+            android:id="@+id/tvRemindersHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌱 Self-Care Reminders"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#5A5A5A"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardWarning" />
+
+        <LinearLayout
+            android:id="@+id/llReminders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindersHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <CheckBox
+                android:id="@+id/chkCounselling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💬 Therapy session at 3 PM"
+                android:textSize="15sp"
+                android:textColor="#5A5A5A"
+                android:padding="12dp"
+                android:buttonTint="#B9A9D1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F0F0F0" />
+
+            <CheckBox
+                android:id="@+id/chkDrinkWater"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💧 Drink water and stretch"
+                android:textSize="15sp"
+                android:textColor="#5A5A5A"
+                android:padding="12dp"
+                android:buttonTint="#A8D8EA" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F0F0F0" />
+
+            <CheckBox
+                android:id="@+id/chkMeditate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🧘 Evening meditation (10 min)"
+                android:textSize="15sp"
+                android:textColor="#5A5A5A"
+                android:padding="12dp"
+                android:buttonTint="#D5E8D4" />
+
+        </LinearLayout>
+
+        <!-- BOTTOM NAVIGATION BAR - Clean icon-only design -->
+
+        <!-- Home Icon -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHome"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="#F0EBF5"
+            app:icon="@drawable/ic_home"
+            app:iconGravity="textStart"
+            app:iconTint="#B9A9D1"
+            app:iconSize="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llReminders"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:tooltipText="Home" />
+
+        <!-- Messages Icon -->
+
+        <!-- Add Entry - Plus Icon Button -->
+
+        <!-- Guided Support - Heart/Support Icon Button -->
+
+        <!-- Settings - Gear Icon Button -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMessage"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="24dp"
+            android:backgroundTint="#EBF0F5"
+            android:tooltipText="Messages"
+            app:icon="@drawable/ic_message"
+            app:iconGravity="textStart"
+            app:iconSize="28dp"
+            app:iconTint="#A8D8EA"
+            app:layout_constraintStart_toEndOf="@id/btnHome"
+            app:layout_constraintTop_toTopOf="@id/btnHome" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddEntry"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="#C5D9D1"
+            android:tooltipText="Add Entry"
+            app:icon="@drawable/ic_add"
+            app:iconGravity="textStart"
+            app:iconSize="28dp"
+            app:iconTint="#5A6F66"
+            app:layout_constraintStart_toEndOf="@id/btnMessage"
+            app:layout_constraintTop_toTopOf="@id/btnHome" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuidedSupport"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="#E8D5E4"
+            android:tooltipText="Guided Support"
+            app:icon="@drawable/ic_support"
+            app:iconGravity="textStart"
+            app:iconSize="28dp"
+            app:iconTint="#8B6F8C"
+            app:layout_constraintStart_toEndOf="@id/btnAddEntry"
+            app:layout_constraintTop_toTopOf="@id/btnHome" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#F5EBF0"
+            android:tooltipText="Settings"
+            app:icon="@drawable/ic_settings"
+            app:iconGravity="textStart"
+            app:iconSize="28dp"
+            app:iconTint="#A08090"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/btnGuidedSupport"
+            app:layout_constraintTop_toTopOf="@id/btnHome" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
